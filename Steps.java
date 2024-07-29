@@ -20,7 +20,7 @@ public class Steps {
 
         WebDriver  driver = new ChromeDriver();
         driver.get("http://adactin.com/HotelApp/");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+       // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @When("User enters valid {string} and {string}")
