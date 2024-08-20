@@ -26,47 +26,25 @@ public class Login_Test {
         productPage = new ProductPage(driver);
 
    }
-   @Test(priority = 1)
+   @Test
     public  void login(){
-       loginPage.enterUsername(Constants.USERNAME)
-                .enterPassword(Constants.PASSWORD)
-                .clickLogin();
+
+       loginPage.login(Constants.USERNAME,
+               Constants.PASSWORD);
+
+       productPage.verifyHeader()
+               .addProduct()
+               .goToCart()
+               .verifyProduct()
+               .clickCheckOut();
 
    }
-   @Test(priority = 2)
-    public void verifyProductPage(){
-       Assert.assertTrue(productPage.verifyHeader());
-
-   }
-    @Test(priority = 3)
-    public void addProductToCart(){
-        productPage.addProduct();
-    }
-    @Test(priority = 4)
-    public void goToCart(){
-        productPage.goToCart();
-    }
-    @Test(priority = 5)
-    public void verifyAddToCart(){
-        String cartHeader = productPage.verifyCartHeader();
-        String ExpectedHeader="Your Cart";
-        Assert.assertEquals(ExpectedHeader,cartHeader);
-    }
-    @Test(priority = 6)
-    public void clickCheckOut(){
-        productPage.clickCheckOut();
-    }
-    @Test(priority = 7)
-    public void verifyUserIsOnTheShippingDetailsPage(){
-
-    }
-
-   @AfterTest
-    public void tearDown(){
-     //  driver.quit();
+//   @AfterTest
+//    public void tearDown(){
+//     //  driver.quit();
 
    }
 
 
 
-}
+

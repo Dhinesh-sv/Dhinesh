@@ -29,23 +29,45 @@ public class ProductPage {
     @FindBy(xpath = " //span[text()='Your Cart']")
     private WebElement cartHeader;
 
-    public boolean verifyHeader(){
-        return productHeader.isDisplayed();
-    }
-    public void addProduct(){
-        btnAddtoCart.click();
+    public ProductPage verifyHeader() {
+        if (productHeader.isDisplayed()) {
+            System.out.println("Header is displayed.");
+        } else {
+            System.out.println("Header is not displayed.");
+        }
+        return this;
     }
 
-    public void goToCart(){
+    public ProductPage addProduct(){
+        btnAddtoCart.click();
+        return this;
+    }
+
+
+    public ProductPage goToCart() {
         btnGoToCart.click();
+        return this;
     }
-    public String verifyCartHeader(){
-       String titleCartHeader = cartHeader.getText();
-       return titleCartHeader;
+
+    public ProductPage verifyCartHeaderAndContinue() {
+        String titleCartHeader = cartHeader.getText();
+        System.out.println("Cart Header: " + titleCartHeader);
+        return this;
     }
-    public void clickCheckOut(){
+    public ProductPage verifyProduct() {
+        if (product.isDisplayed()) {
+            System.out.println("Product is matched");
+        } else {
+            System.out.println("Product Mismatched");
+        }
+
+        return this;
+    }
+    public ProductPage clickCheckOut() {
         btnCheckOut.click();
+        return this;
     }
+
 
 
 }
