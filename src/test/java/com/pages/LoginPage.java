@@ -37,9 +37,10 @@ public class LoginPage {
     }
 
     public LoginPage login(String username, String password) {
-        return enterUsername(username)
+         enterUsername(username)
                 .enterPassword(password)
                 .clickLogin();
+         return this;
     }
 
 }

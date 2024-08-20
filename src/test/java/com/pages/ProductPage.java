@@ -54,15 +54,16 @@ public class ProductPage {
         System.out.println("Cart Header: " + titleCartHeader);
         return this;
     }
+
     public ProductPage verifyProduct() {
         if (product.isDisplayed()) {
             System.out.println("Product is matched");
         } else {
             System.out.println("Product Mismatched");
         }
-
         return this;
     }
+
     public ProductPage clickCheckOut() {
         btnCheckOut.click();
         return this;
