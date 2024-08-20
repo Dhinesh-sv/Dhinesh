@@ -1,14 +1,14 @@
 package com.pages;
 
+import com.base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
-    private WebDriver driver;
+public class LoginPage extends BasePage {
+    WebDriver driver;
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
@@ -27,6 +27,7 @@ public class LoginPage {
     }
 
     public LoginPage enterPassword(String password) {
+        Logger.info("Open the login Page");
         txtPassword.sendKeys(password);
         return this;
     }
@@ -42,5 +43,4 @@ public class LoginPage {
                 .clickLogin();
          return this;
     }
-
 }

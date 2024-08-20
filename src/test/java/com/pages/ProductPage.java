@@ -1,16 +1,18 @@
 package com.pages;
 
+import com.base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
-public class ProductPage {
-
-    private WebDriver driver;
+public class ProductPage extends BasePage {
+    WebDriver driver;
     public ProductPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
+
     @FindBy(xpath = "//span[text()='Products']")
     private WebElement productHeader;
 
@@ -30,11 +32,9 @@ public class ProductPage {
     private WebElement cartHeader;
 
     public ProductPage verifyHeader() {
-        if (productHeader.isDisplayed()) {
-            System.out.println("Header is displayed.");
-        } else {
-            System.out.println("Header is not displayed.");
-        }
+        Logger.info("User Succesfully navigated to HomePage");
+      String actualHomepageHeader = productHeader.getText();
+      Assert.assertEquals(actualHomepageHeader,"Products","User Succesfully logged in");
         return this;
     }
 
@@ -43,24 +43,22 @@ public class ProductPage {
         return this;
     }
 
-
     public ProductPage goToCart() {
+        Logger.info("User Added one product to cart");
         btnGoToCart.click();
         return this;
     }
 
     public ProductPage verifyCartHeaderAndContinue() {
-        String titleCartHeader = cartHeader.getText();
-        System.out.println("Cart Header: " + titleCartHeader);
+        String actualCartHeader = cartHeader.getText();
+        Assert.assertEquals(actualCartHeader,"Your Cart", "Cart Header is not matched with the expected result");
         return this;
     }
 
     public ProductPage verifyProduct() {
-        if (product.isDisplayed()) {
-            System.out.println("Product is matched");
-        } else {
-            System.out.println("Product Mismatched");
-        }
+        Logger.info("User can able to see the products in the cart");
+        String actualProductName = product.getText();
+        Assert.assertEquals(actualProductName,"Sauce Labs Bolt T-Shirt","Product mismatched With the expected one");
         return this;
     }
 
@@ -68,7 +66,5 @@ public class ProductPage {
         btnCheckOut.click();
         return this;
     }
-
-
 
 }

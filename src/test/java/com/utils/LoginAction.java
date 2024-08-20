@@ -1,8 +1,4 @@
-import com.base.BaseClass;
-import com.pages.LoginPage;
-import com.pages.ProductPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+package com.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;

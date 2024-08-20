@@ -1,15 +1,18 @@
+package com.test;
+
+import com.base.BasePage;
 import com.pages.LoginPage;
 import com.pages.ProductPage;
+import com.utils.Constants;
+import com.utils.LoginAction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Login_Test {
+public class Login_Test extends BasePage {
     private WebDriver driver;
     private LoginPage loginPage;
     private ProductPage productPage;
@@ -17,15 +20,21 @@ public class Login_Test {
 
    @BeforeTest
     public void setup(){
+       loginAction.loadProperty();
+
+
+//       launchUrl(Constants.APP_URL);
+//       maximize();
+//       implicitWait();
         driver = new ChromeDriver();
-        loginAction.loadProperty();
         driver.get(Constants.APP_URL);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        loginPage = new LoginPage(driver);
-        productPage = new ProductPage(driver);
+       loginPage = new LoginPage(driver);
+       productPage = new ProductPage(driver);
 
    }
+
    @Test
     public  void login(){
 
@@ -35,10 +44,12 @@ public class Login_Test {
        productPage.verifyHeader()
                .addProduct()
                .goToCart()
+               .verifyCartHeaderAndContinue()
                .verifyProduct()
                .clickCheckOut();
 
    }
+
 //   @AfterTest
 //    public void tearDown(){
 //     //  driver.quit();
