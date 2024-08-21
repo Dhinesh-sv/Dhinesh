@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class ProductPage extends BasePage {
-    WebDriver driver;
     public ProductPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
@@ -34,7 +33,7 @@ public class ProductPage extends BasePage {
     public ProductPage verifyHeader() {
         Logger.info("User Succesfully navigated to HomePage");
       String actualHomepageHeader = productHeader.getText();
-      Assert.assertEquals(actualHomepageHeader,"Products","User Succesfully logged in");
+      Assert.assertEquals(actualHomepageHeader,"Products","User Unable to log in");
         return this;
     }
 

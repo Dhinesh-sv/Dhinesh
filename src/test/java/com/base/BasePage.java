@@ -15,6 +15,7 @@ public class BasePage {
     public void launchUrl(String Url){
         driver = new ChromeDriver();
         driver.get(Url);
+        driver.manage().window().maximize();
 
 
     }

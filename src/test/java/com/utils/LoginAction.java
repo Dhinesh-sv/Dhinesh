@@ -6,8 +6,6 @@ import java.util.Properties;
 
 public class LoginAction {
 
-
-
     public void loadProperty() {
         Properties properties = new Properties();
         try {
@@ -20,12 +18,10 @@ public class LoginAction {
         Constants.APP_URL= properties.getProperty("APP_URL");
         Constants.USERNAME = properties.getProperty("USERNAME");
         Constants.PASSWORD = properties.getProperty("PASSWORD");
+        Constants.FIRSTNAME = properties.getProperty("FIRSTNAME");
+        Constants.LASTNAME = properties.getProperty("LASTNAME");
+        Constants.ZIPCODE = properties.getProperty("ZIPCODE");
 
     }
-
-
-
-
-
 
 }
