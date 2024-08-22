@@ -1,16 +1,10 @@
-import com.base.BaseClass;
-import com.pages.LoginPage;
-import com.pages.ProductPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+package com.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 public class LoginAction {
-
-
 
     public void loadProperty() {
         Properties properties = new Properties();
@@ -24,12 +18,13 @@ public class LoginAction {
         Constants.APP_URL= properties.getProperty("APP_URL");
         Constants.USERNAME = properties.getProperty("USERNAME");
         Constants.PASSWORD = properties.getProperty("PASSWORD");
+        Constants.INVALIDUSERNAME = properties.getProperty("INVALIDUSERNAME");
+        Constants.INVALIDPASSWORD = properties.getProperty("INVALIDPASSWORD");
+        Constants.FIRSTNAME = properties.getProperty("FIRSTNAME");
+        Constants.LASTNAME = properties.getProperty("LASTNAME");
+        Constants.ZIPCODE = properties.getProperty("ZIPCODE");
+
 
     }
-
-
-
-
-
 
 }
