@@ -29,8 +29,7 @@ public class Login_Test extends BaseTest {
 
    @Test
     public  void loginTest() {
-       loginPage.login(Constants.USERNAME,
-               Constants.PASSWORD);
+       loginPage.login(Constants.USERNAME,Constants.PASSWORD);
 
        productPage.verifyHeader()
                   .addProduct()
