@@ -9,10 +9,7 @@ import com.utils.Constants;
 import com.utils.LoginAction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
@@ -32,8 +29,7 @@ public class Login_Test extends BaseTest {
 
    @Test
     public  void loginTest() {
-       loginPage.login(Constants.USERNAME,
-               Constants.PASSWORD);
+       loginPage.login(Constants.USERNAME,Constants.PASSWORD);
 
        productPage.verifyHeader()
                   .addProduct()
@@ -53,11 +49,11 @@ public class Login_Test extends BaseTest {
                .verifyOrderConfirmation();
    }
 
-//   @AfterTest
-//    public void tearDown(){
-//     //  driver.quit();
-
+  @AfterTest
+   public void tearDown(){
+       driver.quit();
    }
+}
 
 
 
