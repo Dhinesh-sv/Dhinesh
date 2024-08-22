@@ -18,9 +18,12 @@ public class LoginAction {
         Constants.APP_URL= properties.getProperty("APP_URL");
         Constants.USERNAME = properties.getProperty("USERNAME");
         Constants.PASSWORD = properties.getProperty("PASSWORD");
+        Constants.INVALIDUSERNAME = properties.getProperty("INVALIDUSERNAME");
+        Constants.INVALIDPASSWORD = properties.getProperty("INVALIDPASSWORD");
         Constants.FIRSTNAME = properties.getProperty("FIRSTNAME");
         Constants.LASTNAME = properties.getProperty("LASTNAME");
         Constants.ZIPCODE = properties.getProperty("ZIPCODE");
+
 
     }
 

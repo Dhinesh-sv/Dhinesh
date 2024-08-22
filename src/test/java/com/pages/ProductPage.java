@@ -8,8 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class ProductPage extends BasePage {
+
     public ProductPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     @FindBy(xpath = "//span[text()='Products']")

@@ -7,18 +7,19 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
-    public LoginPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
+
+public LoginPage(WebDriver driver) {
+    super(driver);
+}
 
     @FindBy(id = "user-name")
-    private WebElement txtUsername;
+     WebElement txtUsername;
 
     @FindBy(id = "password")
-    private WebElement txtPassword;
+     WebElement txtPassword;
 
     @FindBy(id = "login-button")
-    private WebElement btnLogin;
+     WebElement btnLogin;
 
     public LoginPage enterUsername(String username) {
         txtUsername.sendKeys(username);
@@ -42,4 +43,5 @@ public class LoginPage extends BasePage {
                 .clickLogin();
          return this;
     }
+
 }

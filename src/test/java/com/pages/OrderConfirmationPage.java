@@ -10,8 +10,9 @@ import org.testng.Assert;
 public class OrderConfirmationPage extends BasePage {
 
    public OrderConfirmationPage(WebDriver driver){
-       PageFactory.initElements(driver,this);
+       super(driver);
    }
+
    @FindBy(xpath = "//span[@class='title']")
     private WebElement pageTitle;
 

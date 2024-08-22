@@ -11,7 +11,7 @@ import org.testng.Assert;
 public class ShippingDetailsPage extends BasePage {
 
     public ShippingDetailsPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     @FindBy(css = ".title")
